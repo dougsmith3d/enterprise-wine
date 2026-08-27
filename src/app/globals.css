@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0b0f14;
+  --color-bg-secondary: #111827;
+  --color-bg-card: #1f2937;
+  --color-bg-card-hover: #374151;
+  --color-accent: #5eead4;
+  --color-accent-dim: #2dd4bf;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+  --color-border: #374151;
+  --color-border-accent: #5eead4;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-success: #34d399;
+
+  --font-geist: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  --reveal-duration: 0.6s;
+  --reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 767px) {
+  html {
+    --reveal-duration: 1s;
+    --reveal-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+body {
+  font-family: var(--font-geist);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Expanding capture diagram animation */
+@keyframes expandCapture {
+  0% { width: 30%; }
+  100% { width: 100%; }
+}
+
+.animate-expand {
+  animation: expandCapture 2s ease-out forwards;
+}
+
+/* Pulse glow for accent elements */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(94, 234, 212, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(94, 234, 212, 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlowDim {
+  0%, 100% { box-shadow: 0 0 4px rgba(94, 234, 212, 0.15); }
+  50% { box-shadow: 0 0 10px rgba(94, 234, 212, 0.3); }
+}
+
+.animate-pulse-glow-dim {
+  animation: pulseGlowDim 2s ease-in-out infinite;
+}
+
+/* Pulsing white-hot core for timeline termination */
+@keyframes coreRingPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.25; }
+  50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.08; }
+}
+@keyframes coreGlowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
+}
+@keyframes coreDotPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 8px 3px rgba(255,255,255,0.6), 0 0 16px 6px rgba(94,234,212,0.4); }
+  50% { transform: translate(-50%, -50%) scale(1.2); box-shadow: 0 0 12px 5px rgba(255,255,255,0.8), 0 0 24px 10px rgba(94,234,212,0.5); }
+}
+
+/* Strong glow for floating action buttons */
+@keyframes configBtnGlow {
+  0%, 100% { box-shadow: 0 0 10px 3px rgba(94, 234, 212, 0.3), 0 0 28px 6px rgba(94, 234, 212, 0.1); }
+  50% { box-shadow: 0 0 18px 6px rgba(94, 234, 212, 0.5), 0 0 44px 12px rgba(94, 234, 212, 0.18); }
+}
+
+/* Timeline connector line */
+@keyframes drawLine {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+.animate-draw-line {
+  animation: drawLine 1.5s ease-out forwards;
+}
+
+@keyframes chartFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accordion */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
+/* Mobile landscape: tighter spacing */
+@media (orientation: landscape) and (max-height: 500px) {
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  section .mb-16 {
+    margin-bottom: 2rem;
+  }
+  section .mb-12 {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
